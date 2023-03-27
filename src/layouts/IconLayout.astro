@@ -1,0 +1,49 @@
+---
+export interface Props {
+  collapse: boolean;
+}
+
+const { collapse } = Astro.props;
+---
+
+<script>
+  const collapse = document.querySelector("svg");
+  const isCollapse = collapse.hasAttribute("data-collapse");
+
+  const handleClick = () => {
+    const changeState = new Event("changeCollapseState", {
+      bubbles: true
+    });
+    collapse.dispatchEvent(changeState);
+  };
+
+  if (isCollapse) {
+    collapse.addEventListener("click", handleClick);
+  }
+</script>
+
+<svg
+  data-collapse={collapse}
+  viewBox="0 0 24 24"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  stroke="currentColor"
+>
+  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"
+  ></g>
+  <g id="SVGRepo_iconCarrier">
+    <slot />
+  </g>
+</svg>
+
+<style>
+  svg {
+    display: block;
+    width: 3rem;
+  }
+
+  svg[data-collapse] {
+    cursor: pointer;
+  }
+</style>
