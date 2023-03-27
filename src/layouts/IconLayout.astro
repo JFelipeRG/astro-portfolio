@@ -1,26 +1,10 @@
 ---
 export interface Props {
-  collapse: boolean;
+  collapse?: boolean;
 }
 
-const { collapse } = Astro.props;
+const { collapse = false } = Astro.props;
 ---
-
-<script>
-  const collapse = document.querySelector("svg");
-  const isCollapse = collapse.hasAttribute("data-collapse");
-
-  const handleClick = () => {
-    const changeState = new Event("changeCollapseState", {
-      bubbles: true
-    });
-    collapse.dispatchEvent(changeState);
-  };
-
-  if (isCollapse) {
-    collapse.addEventListener("click", handleClick);
-  }
-</script>
 
 <svg
   data-collapse={collapse}

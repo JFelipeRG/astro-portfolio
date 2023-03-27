@@ -6,7 +6,7 @@ import LinkedInIcon from "./Icons/LinkedInIcon.astro";
 
 <script>
   const nav = document.querySelector("nav");
-  const anchors = document.querySelectorAll("li a")
+  const anchors = document.querySelectorAll("li a");
 
   const changeCollapseState = (element) => {
     if (element.classList.contains("unfold")) {
@@ -17,15 +17,8 @@ import LinkedInIcon from "./Icons/LinkedInIcon.astro";
       manageContent(false);
     }
   };
-
-  const handleClick = (element) => {
-    const changeState = new Event("changeCollapseState", {
-      bubbles: true
-    });
-    element.dispatchEvent(changeState);
-  };
-
-  const manageContent = (isCollapse : boolean) => {
+  
+  const manageContent = (isCollapse) => {
     const content = document.querySelector(".content-navbar") as HTMLElement;
     if (isCollapse) {
       setTimeout(() => {
@@ -36,12 +29,10 @@ import LinkedInIcon from "./Icons/LinkedInIcon.astro";
     }
   };
 
-  nav.addEventListener("changeCollapseState", (e) =>
-    changeCollapseState(e.currentTarget)
-  );
+  nav.addEventListener("changeCollapseState", () => changeCollapseState(nav));
 
   for (let anchor of anchors) {
-    anchor.addEventListener("click", (e) => handleClick(e.target))
+    anchor.addEventListener("click", () => changeCollapseState(nav));
   }
 </script>
 
@@ -65,8 +56,16 @@ import LinkedInIcon from "./Icons/LinkedInIcon.astro";
     </ul>
     <hr />
     <div class="icons">
-      <a href="" target="_blank" aria-label="Go my github page"><GitHubIcon></GitHubIcon></a>
-      <a href="" target="_blank" aria-label="Go my linkedin page"><LinkedInIcon></LinkedInIcon></a>
+      <a
+        href="https://github.com/JFelipeRG"
+        target="_blank"
+        aria-label="Go my github page"><GitHubIcon /></a
+      >
+      <a
+        href="https://www.linkedin.com/in/felipe-ramirez-722460263/"
+        target="_blank"
+        aria-label="Go my linkedin page"><LinkedInIcon /></a
+      >
     </div>
   </div>
 </nav>
@@ -84,7 +83,6 @@ import LinkedInIcon from "./Icons/LinkedInIcon.astro";
     justify-content: center;
     align-items: center;
     color: var(--clr-base-txt);
-    overflow: hidden;
   }
 
   nav.fold {
@@ -101,7 +99,7 @@ import LinkedInIcon from "./Icons/LinkedInIcon.astro";
     max-width: 440px;
     height: 100%;
     color: var(--clr-tertiary);
-    transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
     animation: unfold 0.8s ease-in-out;
   }
 
