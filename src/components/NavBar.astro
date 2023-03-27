@@ -1,0 +1,203 @@
+---
+import CollapseIcon from "./Icons/CollapseIcon.astro";
+import GitHubIcon from "./Icons/GitHubIcon.astro";
+import LinkedInIcon from "./Icons/LinkedInIcon.astro";
+---
+
+<script>
+  const nav = document.querySelector("nav");
+  const anchors = document.querySelectorAll("li a")
+
+  const changeCollapseState = (element) => {
+    if (element.classList.contains("unfold")) {
+      element.classList.replace("unfold", "fold");
+      manageContent(true);
+    } else {
+      element.classList.add("unfold");
+      manageContent(false);
+    }
+  };
+
+  const handleClick = (element) => {
+    const changeState = new Event("changeCollapseState", {
+      bubbles: true
+    });
+    element.dispatchEvent(changeState);
+  };
+
+  const manageContent = (isCollapse : boolean) => {
+    const content = document.querySelector(".content-navbar") as HTMLElement;
+    if (isCollapse) {
+      setTimeout(() => {
+        content.style.display = "none";
+      }, 700);
+    } else {
+      content.style.display = "block";
+    }
+  };
+
+  nav.addEventListener("changeCollapseState", (e) =>
+    changeCollapseState(e.currentTarget)
+  );
+
+  for (let anchor of anchors) {
+    anchor.addEventListener("click", (e) => handleClick(e.target))
+  }
+</script>
+
+<nav>
+  <CollapseIcon />
+  <div class="content-navbar">
+    <ul>
+      <li>
+        <a href="#about-section" aria-label="Go about me section">Sobre Mí</a>
+      </li>
+      <li>
+        <a href="#proyects-section" aria-label="Go my proyects section"
+          >Proyectos</a
+        >
+      </li>
+      <li>
+        <a href="#contact-section" aria-label="Go contact me section"
+          >Contáctame</a
+        >
+      </li>
+    </ul>
+    <hr />
+    <div class="icons">
+      <a href="" target="_blank" aria-label="Go my github page"><GitHubIcon></GitHubIcon></a>
+      <a href="" target="_blank" aria-label="Go my linkedin page"><LinkedInIcon></LinkedInIcon></a>
+    </div>
+  </div>
+</nav>
+
+<style>
+  nav {
+    display: block;
+    position: fixed;
+    z-index: 2;
+    padding: 10px;
+    right: 0;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--clr-base-txt);
+    overflow: hidden;
+  }
+
+  nav.fold {
+    animation: fold 0.8s ease-in-out;
+    transition-property: all;
+    transition-delay: 0.8s;
+    width: 70px;
+    height: 70px;
+  }
+
+  nav.unfold {
+    background: var(--clr-base-txt);
+    width: 100%;
+    max-width: 440px;
+    height: 100%;
+    color: var(--clr-tertiary);
+    transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+    animation: unfold 0.8s ease-in-out;
+  }
+
+  nav .content-navbar {
+    display: none;
+  }
+
+  ul {
+    list-style: none;
+    font-size: 1.7rem;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul,
+  li {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  a {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--clr-tertiary);
+  }
+
+  a:hover {
+    color: var(--clr-secondary);
+    transition: color 0.2s ease-in-out;
+  }
+
+  li a:hover::after {
+    content: "";
+    display: block;
+    position: relative;
+    bottom: -5px;
+    height: 2px;
+    background: var(--clr-tertiary);
+    animation: underline 0.5s forwards;
+  }
+
+  hr {
+    width: 240px;
+    background: var(--clr-tertiary);
+    margin: 20px 0;
+  }
+
+  .icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .icons a {
+    width: auto;
+  }
+
+  @keyframes fold {
+    0% {
+      clip-path: circle(150% at 100% 0);
+      width: 100%;
+      max-width: 440px;
+      height: 100%;
+    }
+
+    100% {
+      clip-path: circle(0 at 100% 0);
+      width: 100%;
+      max-width: 440px;
+      height: 100%;
+    }
+  }
+
+  @keyframes unfold {
+    0% {
+      clip-path: circle(0 at 100% 0);
+    }
+
+    100% {
+      clip-path: circle(150% at 100% 0);
+    }
+  }
+
+  @keyframes underline {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+</style>

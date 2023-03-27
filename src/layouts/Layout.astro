@@ -22,20 +22,50 @@ const { title } = Astro.props;
 
 <style is:global>
   :root {
-    --accent: 124, 58, 237;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      #da62c4 30%,
-      white 60%
-    );
+    /*    Base colors    */
+    --clr-base-txt: #eee;
+    --clr-base-bg: #363636;
+
+    /*    Primary color   */
+    --clr-primary: #4e94bf;
+
+    /*    Secondary color   */
+    --clr-secondary: #3270a6;
+
+    /*    Tertiary color   */
+    --clr-tertiary: #8c6c6c;
+
+    /*    Quaternary color   */
+    --clr-quaternary: #f2c49b;
   }
-  html {
-    font-family: system-ui, sans-serif;
-    background-color: #f6f6f6;
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-  code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+
+  html,
+  body {
+    width: 100vw;
+    max-width: 100%;
+    height: 100vh;
+    color: var(--clr-base-txt);
+    background: var(--clr-base-bg);
+    scrollbar-color: var(--clr-quaternary) var(--clr-base-lt);
+    scrollbar-width: 1em;
+    scroll-behavior: smooth;
+  }
+
+  ::-webkit-scrollbar {
+    width: 1em;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--clr-quaternary);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--clr-base-lt);
   }
 </style>

@@ -1,12 +1,50 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import CollapseIcon from "../components/Icons/CollapseIcon.astro";
+import NavBar from "../components/NavBar.astro";
 ---
 
 <Layout title="Felipe Ramirez | FrontEnd Dev">
+  <header>
+    <div class="icon-switcher"></div>
+    <NavBar />
+  </header>
   <main>
-    <CollapseIcon></CollapseIcon>
+    <section id="hero-section" class="hero">
+      <div>
+        <h1>Felipe Ramirez</h1>
+        <h2>FrontEnd Developer</h2>
+      </div>
+      <a
+        class="hero-button"
+        href="#about-section"
+        aria-label="Go about me section"></a>
+    </section>
+    <section id="about-section" class="about-me">
+      <h1>Sobre Mí</h1>
+    </section>
+    <section id="proyects-section" class="proyects">
+      <h1>Proyectos</h1>
+    </section>
+    <section id="contact-section" class="contact">
+      <h1>Contáctame</h1>
+    </section>
   </main>
 </Layout>
 
-<style></style>
+<style>
+  .icon-switcher {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+  }
+
+  section {
+    width: 100%;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
