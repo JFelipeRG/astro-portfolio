@@ -8,5 +8,5 @@ module.exports = {
       },
     },
   ],
-  astroAllowShorthand: false
+  astroAllowShorthand: false,
 };
