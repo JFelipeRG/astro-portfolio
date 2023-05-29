@@ -1,13 +1,4 @@
----
-export interface Props {
-  collapse?: boolean;
-}
-
-const { collapse = false } = Astro.props;
----
-
 <svg
-  data-collapse={collapse}
   viewBox="0 0 24 24"
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
@@ -24,13 +15,7 @@ const { collapse = false } = Astro.props;
 <style>
   svg {
     display: block;
-    width: 3rem;
-  }
-
-  svg[data-collapse] {
-    cursor: pointer;
-    position: fixed;
-    top: 10px;
-    right: 10px;
+    width: 100%;
+    height: 100%;
   }
 </style>
