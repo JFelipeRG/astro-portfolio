@@ -1,0 +1,101 @@
+---
+import GitHubIcon from "@components/Icons/GitHubIcon.astro";
+
+export interface Props {
+  data: object;
+}
+
+const { data } = Astro.props;
+---
+
+<script>
+  // Rellenar el contenedor de las tecnologias con los datos obtenidos
+
+  const containers = document.querySelectorAll(".container");
+  for (const container of containers) {
+    container.addEventListener("click", (e) => {
+      const url = container.dataset.url;
+      window.open(url, "_blank");
+    });
+  }
+</script>
+
+<div class="container" data-url={data.url}>
+  <picture>
+    <!-- <img class="proyect-img" src={data.imageSrc} alt={"Image of proyect " + data.name} /> -->
+  </picture>
+  <div class="info">
+    <h1>{data.name}</h1>
+    <p>{data.description}</p>
+    <footer>
+      <a href={data.repoUrl} target="_blank"><GitHubIcon /></a>
+      <div class="tecnologies">
+        {data.tecnologies}
+      </div>
+    </footer>
+  </div>
+</div>
+
+<style>
+  .container,
+  .info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container {
+    background: var(--clr-tertiary);
+    color: #ffffff;
+    border-radius: 10px;
+    width: 300px;
+    aspect-ratio: 1/1.5;
+    cursor: pointer;
+    box-shadow: 15px 10px 10px var(--clr-tertiary);
+    filter: brightness(1);
+  }
+
+  .container:hover {
+    scale: 1.03;
+    transition: all 0.5s ease-in-out;
+  }
+
+  picture {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3/2;
+    border-bottom: 5px solid var(--clr-tertiary);
+    border-radius: 10px 10px 0 0;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .info {
+    flex: 1;
+  }
+
+  h1 {
+    text-align: center;
+    margin: 10px 0;
+    color: var(--clr-base-bg);
+  }
+
+  p {
+    padding: 10px;
+    flex: 1;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  a {
+    font-size: 1rem;
+    text-decoration: none;
+    color: white;
+  }
+
+  a:hover {
+    color: var(--clr-base-bg);
+  }
+</style>
