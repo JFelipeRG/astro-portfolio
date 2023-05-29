@@ -1,21 +1,8 @@
 ---
-import IconLayout from "../../layouts/IconLayout.astro";
+import IconLayout from "@layouts/IconLayout.astro";
 ---
 
-<script>
-  const collapse = document.querySelector("nav > svg");
-
-  const handleClick = () => {
-    const changeState = new Event("changeCollapseState", {
-      bubbles: true,
-    });
-    collapse.dispatchEvent(changeState);
-  };
-
-  collapse.addEventListener("click", handleClick);
-</script>
-
-<IconLayout collapse={true}>
+<IconLayout>
   <path
     d="M3 7H21"
     stroke="currentColor"
