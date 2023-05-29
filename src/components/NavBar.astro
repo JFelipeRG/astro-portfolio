@@ -6,18 +6,19 @@ import LinkedInIcon from "./Icons/LinkedInIcon.astro";
 
 <script>
   const nav = document.querySelector("nav");
+  const collapseButton = document.querySelector(".collapse-icon-container")
   const anchors = document.querySelectorAll("li a");
 
-  const changeCollapseState = (element) => {
-    if (element.classList.contains("unfold")) {
-      element.classList.replace("unfold", "fold");
+  const changeCollapseState = () => {
+    if (nav.classList.contains("unfold")) {
+      nav.classList.replace("unfold", "fold");
       manageContent(true);
     } else {
-      element.classList.add("unfold");
+      nav.classList.add("unfold");
       manageContent(false);
     }
   };
-  
+
   const manageContent = (isCollapse) => {
     const content = document.querySelector(".content-navbar") as HTMLElement;
     if (isCollapse) {
@@ -29,28 +30,25 @@ import LinkedInIcon from "./Icons/LinkedInIcon.astro";
     }
   };
 
-  nav.addEventListener("changeCollapseState", () => changeCollapseState(nav));
+  collapseButton.addEventListener("click", () => changeCollapseState());
 
   for (let anchor of anchors) {
-    anchor.addEventListener("click", () => changeCollapseState(nav));
+    anchor.addEventListener("click", () => changeCollapseState());
   }
 </script>
 
 <nav>
-  <CollapseIcon />
+  <div class="collapse-icon-container">
+    <CollapseIcon />
+  </div>
   <div class="content-navbar">
     <ul>
       <li>
-        <a href="#about-section" aria-label="Go about me section">Sobre Mí</a>
+        <a href="#about" aria-label="Go about me section">Sobre Mí</a>
       </li>
       <li>
-        <a href="#proyects-section" aria-label="Go my proyects section"
+        <a href="#proyects" aria-label="Go my proyects section"
           >Proyectos</a
-        >
-      </li>
-      <li>
-        <a href="#contact-section" aria-label="Go contact me section"
-          >Contáctame</a
         >
       </li>
     </ul>
@@ -83,6 +81,7 @@ import LinkedInIcon from "./Icons/LinkedInIcon.astro";
     justify-content: center;
     align-items: center;
     color: var(--clr-base-txt);
+    border-left: 2px solid transparent;
   }
 
   nav.fold {
@@ -103,7 +102,24 @@ import LinkedInIcon from "./Icons/LinkedInIcon.astro";
     animation: unfold 0.8s ease-in-out;
   }
 
-  nav .content-navbar {
+  .collapse-icon-container {
+    color: var(--clr-tertiary);
+    filter: brightness(.8);
+    width: 3.5rem;
+    height: 3.5rem;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .collapse-icon-container:hover {
+    backdrop-filter: contrast(60%);
+  }
+
+  .content-navbar {
     display: none;
   }
 
@@ -138,12 +154,16 @@ import LinkedInIcon from "./Icons/LinkedInIcon.astro";
     transition: color 0.2s ease-in-out;
   }
 
-  li a:hover::after {
+  li a::after {
     content: "";
     display: block;
     position: relative;
     bottom: -5px;
     height: 2px;
+    background: transparent;
+  }
+
+  li a:hover::after {
     background: var(--clr-tertiary);
     animation: underline 0.5s forwards;
   }
@@ -161,7 +181,7 @@ import LinkedInIcon from "./Icons/LinkedInIcon.astro";
   }
 
   .icons a {
-    width: auto;
+    width: 3rem;
   }
 
   @keyframes fold {
