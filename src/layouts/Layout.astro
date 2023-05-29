@@ -10,9 +10,12 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Me llamo Felipe Ramirez, desarrollador FrontEnd
+    <meta
+      name="description"
+      content="Me llamo Felipe Ramirez, desarrollador FrontEnd
       residente en Valencia (España). Aquí puedes conocerme un poco más y ver
-      algunos de mis últimos proyectos">
+      algunos de mis últimos proyectos"
+    />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
@@ -36,7 +39,7 @@ const { title } = Astro.props;
 
   :root {
     /*    Base colors    */
-    --clr-base-txt: #eee;
+    --clr-base-txt: #ffffff;
     --clr-base-bg: #363636;
 
     /*    Primary color   */
@@ -46,10 +49,7 @@ const { title } = Astro.props;
     --clr-secondary: #3270a6;
 
     /*    Tertiary color   */
-    --clr-tertiary: #8c6c6c;
-
-    /*    Quaternary color   */
-    --clr-quaternary: #f2c49b;
+    --clr-tertiary: #f2c49b;
   }
 
   * {
@@ -65,10 +65,27 @@ const { title } = Astro.props;
     height: 100vh;
     color: var(--clr-base-txt);
     background: var(--clr-base-bg);
-    scrollbar-color: var(--clr-quaternary) var(--clr-base-lt);
-    scrollbar-width: 1em;
+    scrollbar-color: var(--clr-tertiary) var(--clr-base-lt);
+    scrollbar-width: 1rem;
     scroll-behavior: smooth;
-    font-family: "SF UI Text", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    font-family: "SF UI Text", system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+      "Helvetica Neue", sans-serif;
+  }
+
+  @media (min-width: 700px) {
+    main > section:first-child {
+      background: url(/img/hero-bg.svg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  main section:nth-child(2n) {
+    color: var(--clr-base-bg);
+    background: var(--clr-base-txt);
   }
 
   ::-webkit-scrollbar {
@@ -76,10 +93,10 @@ const { title } = Astro.props;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: var(--clr-quaternary);
+    background-color: var(--clr-tertiary);
   }
 
   ::-webkit-scrollbar-track {
-    background: var(--clr-base-lt);
+    background: var(--clr-base-bg);
   }
 </style>
