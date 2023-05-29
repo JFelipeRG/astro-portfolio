@@ -1,6 +1,9 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import NavBar from "../components/NavBar.astro";
+import Layout from "@layouts/Layout.astro";
+import NavBar from "@components/NavBar.astro";
+import HeroSection from "@components/Sections/HeroSection.astro";
+import AboutSection from "@components/Sections/AboutSection.astro";
+import ProyectsSection from "@components/Sections/Proyects/ProyectsSection.astro";
 ---
 
 <Layout title="Felipe Ramirez | FrontEnd Dev">
@@ -8,36 +11,8 @@ import NavBar from "../components/NavBar.astro";
     <NavBar />
   </header>
   <main>
-    <section id="hero-section" class="hero">
-      <div>
-        <h1>Felipe Ramirez</h1>
-        <h2>FrontEnd Developer</h2>
-      </div>
-      <a
-        class="hero-button"
-        href="#about-section"
-        aria-label="Go about me section"></a>
-    </section>
-    <section id="about-section" class="about-me">
-      <h1>Sobre Mí</h1>
-    </section>
-    <section id="proyects-section" class="proyects">
-      <h1>Proyectos</h1>
-    </section>
-    <section id="contact-section" class="contact">
-      <h1>Contáctame</h1>
-    </section>
+    <HeroSection></HeroSection>
+    <AboutSection></AboutSection>
+    <ProyectsSection></ProyectsSection>
   </main>
 </Layout>
-
-<style>
-  section {
-    width: 100%;
-    min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-  }
-</style>
