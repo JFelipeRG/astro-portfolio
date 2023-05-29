@@ -1,0 +1,76 @@
+---
+import SectionLayout from "@layouts/SectionLayout.astro";
+---
+
+<SectionLayout id="hero">
+  <div class="personal-info">
+    <picture>
+      <img src="/img/me.webp" alt="Personal image for hero page" />
+    </picture>
+    <h1>¡Hola! <span>Soy</span> Juan <span>Felipe</span> Ramirez</h1>
+    <p>Junior <span>Front-End</span> Developer</p>
+  </div>
+  <a class="hero-button" href="#about" aria-label="Go about me section">
+    Conóceme
+  </a>
+</SectionLayout>
+
+<style scoped>
+  .personal-info {
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  picture {
+    display: block;
+    width: 350px;
+    margin: auto;
+    aspect-ratio: 1/1;
+    backdrop-filter: invert(0.5);
+    border-radius: 50%;
+    padding: 20px;
+    border: 5px solid var(--clr-tertiary);
+  }
+
+  @media (max-width: 350px) {
+    picture {
+      width: 300px;
+      aspect-ratio: 1/1;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+
+  h1 {
+    max-width: 500px;
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    color: var(--clr-base-txt);
+  }
+
+  span {
+    color: var(--clr-tertiary);
+    text-shadow: 1px 1px 1px black;
+  }
+
+  p {
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+  }
+
+  .hero-button {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    color: var(--clr-base-bg);
+    font-weight: 600;
+    background: var(--clr-tertiary);
+    border-radius: 7px;
+  }
+</style>
