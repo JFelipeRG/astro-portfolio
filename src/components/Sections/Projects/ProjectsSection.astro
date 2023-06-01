@@ -1,0 +1,27 @@
+---
+import SectionLayout from "@layouts/SectionLayout.astro";
+import ProjectContainer from "./ProjectContainer.astro";
+
+let projects = await Astro.glob("@json/projects.json");
+projects = projects[0].default.proyects;
+---
+
+<SectionLayout id="projects">
+  <h1 class="title-section">Proyectos</h1>
+  <div class="projects">
+    {projects.map((project) => <ProjectContainer data={project} />)}
+  </div>
+</SectionLayout>
+
+<style>
+  h1 {
+    margin: 20px 0;
+  }
+
+  .projects {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+</style>

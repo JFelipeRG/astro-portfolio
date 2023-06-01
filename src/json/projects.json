@@ -1,0 +1,44 @@
+{
+  "proyects": [
+    {
+      "name": "Pineapple-Pizza",
+      "description": "Un sencillo juego de puzzles con temática entorno al meme de la pizza con piña.",
+      "imageSrc": "/img/pineapple-pizza.webp",
+      "url": "https://jfrg-pineapple-pizza.netlify.app/",
+      "repoUrl": "https://github.com/JFelipeRG/pizza-pineapple",
+      "tecnologies": ["WebComponents", "JavaScript", "CSS"]
+    },
+    {
+      "name": "Bingo",
+      "description": "Reto propuesto por ManzDev durante el curso de la EOI de desarrollador front-end.",
+      "imageSrc": "/img/bingo.webp",
+      "url": "https://jfeliperg.github.io/bingo/",
+      "repoUrl": "https://github.com/JFelipeRG/bingo",
+      "tecnologies": ["WebComponents", "JavaScript", "CSS"]
+    },
+    {
+      "name": "Drunky Ducks",
+      "description": "Desarrollado por Dapper Drake. Catálogo de cócteles con un chatbot que usa la OpenAI API.",
+      "imageSrc": "/img/drunkyducks.webp",
+      "url": "https://drunkyducks.com/",
+      "repoUrl": "https://github.com/Drunky-Ducks/drunkyducks",
+      "tecnologies": ["Vue", "JavaScript", "CSS"]
+    },
+    {
+      "name": "Portfolio",
+      "description": "Mi sitio web, donde podrás conocerme un poco más y ver algunos trabajos.",
+      "imageSrc": "/img/portfolio.webp",
+      "url": "https://memory-game-jfrg.netlify.app/",
+      "repoUrl": "https://github.com/JFelipeRG/astro-portfolio",
+      "tecnologies": ["Astro", "JavaScript", "CSS"]
+    },
+    {
+      "name": "Memory Game",
+      "description": "Juego de buscar las parejas para ejercitar la memoria.",
+      "imageSrc": "/img/memory.webp",
+      "url": "https://memory-game-jfrg.netlify.app/",
+      "repoUrl": "https://github.com/JFelipeRG/memory-game",
+      "tecnologies": ["Vue", "JavaScript", "CSS"]
+    }
+  ]
+}
