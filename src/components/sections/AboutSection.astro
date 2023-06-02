@@ -5,11 +5,11 @@ import SectionLayout from "@layouts/SectionLayout.astro";
 <SectionLayout id="about">
   <h1 class="title-section">Sobre mí</h1>
   <p class="about-text">
-    ¡Hola! Mi nombre es Felipe, soy un desarrollador junior front-end entusiasta que
-    descubrió el fascinante mundo de la informática de manera fortuita. Aunque
-    inicialmente me inclinaba hacia la física, gracias a una charla en mi instituto,
-    decidí darle una oportunidad al mundo de la programación. Desde entonces me he
-    entregado por completo a este camino, encontrando mi pasión.
+    ¡Hola! Mi nombre es Felipe, soy un desarrollador junior front-end entusiasta
+    que descubrió el fascinante mundo de la informática de manera fortuita.
+    Aunque inicialmente me inclinaba hacia la física, gracias a una charla en mi
+    instituto, decidí darle una oportunidad al mundo de la programación. Desde
+    entonces me he entregado por completo a este camino, encontrando mi pasión.
   </p>
 
   <div class="timeline-container">
@@ -19,7 +19,7 @@ import SectionLayout from "@layouts/SectionLayout.astro";
         <span>Sept. 2020 - Junio 2022</span>
         <h3>CFGS Desarrollo de aplicaciones Web</h3>
         <h4>IES Maria Moliner</h4>
-        <div class="tecnolgies">
+        <div class="tecnologies">
           <span>HTML</span>
           <span>CSS</span>
           <span>Java</span>
@@ -31,7 +31,7 @@ import SectionLayout from "@layouts/SectionLayout.astro";
         <span>Enero - Abril 2023</span>
         <h3>Bootcamp Front-End Developer</h3>
         <h4>Escuela de Organización Industrial</h4>
-        <div class="tecnolgies">
+        <div class="tecnologies">
           <span>Vue</span>
           <span>Pinia</span>
           <span>Firebase</span>
@@ -49,124 +49,147 @@ import SectionLayout from "@layouts/SectionLayout.astro";
 </SectionLayout>
 
 <style>
- .about-text {
-  max-width: 700px;
-  text-indent: 10px;
-  text-align: justify;
-  line-height: 1.5;
-  font-size: 1rem;
- }
-
- h2 {
-  margin-bottom: 40px;
- }
-
- .timeline-list {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
- }
-
- .timeline-item {
-  display: block;
-  position: relative;
-  width: 100%;
-  max-width: 300px;
-  aspect-ratio: 2/2.5;
-  padding: 10px;
-  border: 5px solid var(--clr-base-bg);
-  border-radius: 10px;
-  text-decoration: none;
- }
-
- .timeline-item:nth-child(odd) {
-  background: var(--clr-base-txt);
-  color: var(--clr-base-bg);
- }
-
- .timeline-item::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: -25px;
-  width: calc(100% + 30px);
-  height: 5px;
-  background: var(--clr-base-bg);
- }
-
- .timeline-item:last-child::before {
-  display: none;
- }
-
- .timeline-item::after {
-  content: "";
-  position: absolute;
-  display: block;
-  top: -35px;
-  left: -10px;
-  background: var(--clr-base-bg);
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  border: 5px solid var(--clr-base-bg);
- }
-
- .timeline-item:nth-child(even)::after {
-  background: var(--clr-base-txt);
- }
-
- .timeline-item:nth-child(even) {
-  background: var(--clr-base-bg);
-  color: var(--clr-base-txt);
- }
-
- .timeline-item > span {
-  display: inline-block;
-  margin-bottom: 5px;
- }
-
- .timeline-item h3 {
-  height: 60px;
-  font-size: 1.3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 5px;
-  border-radius: 7px;
- }
-
- .timeline-item h4 {
-  font-size: 1.1rem;
-  padding: 5px;
- }
-
- .timeline-item:nth-child(even) h3 {
-  background: var(--clr-base-txt);
-  color: var(--clr-base-bg);
- }
-
- .timeline-item:nth-child(odd) h3 {
-  background: var(--clr-base-bg);
-  color: var(--clr-base-txt);
- }
-
- /*   Tablet media querys    */
- @media (min-width: 768px) {
   .about-text {
-    font-size: 1.1rem;
+    max-width: 700px;
+    text-indent: 10px;
+    text-align: justify;
+    line-height: 1.5;
+    font-size: 1rem;
+  }
+
+  h2 {
+    margin-bottom: 40px;
   }
 
   .timeline-list {
-    flex-direction: row;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
   }
 
-  .timeline-item span {
-    font-size: 1.2rem;
+  .timeline-item {
+    --base-clr: var(--clr-base-bg);
+    --text-clr: var(--clr-base-txt);
+    display: block;
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    padding: 10px;
+    background: var(--text-clr);
+    color: var(--base-clr);
+    border: 5px solid var(--clr-base-bg);
+    border-radius: 10px;
+  }
+
+  .timeline-item:nth-child(even) {
+    --base-clr: var(--clr-base-txt);
+    --text-clr: var(--clr-base-bg);
+  }
+
+  /*    Line    */
+  .timeline-item::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: -25px;
+    width: 5px;
+    height: calc(100% + 40px);
+    background: var(--clr-base-bg);
+  }
+
+  /*  Disabled line in the last card   */
+  .timeline-item:last-child::before {
+    display: none;
+  }
+
+  /*    Circle    */
+  .timeline-item::after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: -35px;
+    background: var(--base-clr);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 5px solid var(--clr-base-bg);
+  }
+
+  .timeline-item > span {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: 600;
   }
 
   .timeline-item h3 {
-
+    height: 60px;
+    background: var(--base-clr);
+    color: var(--text-clr);
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    border-radius: 7px;
   }
- }
+
+  .timeline-item h4 {
+    font-size: 1rem;
+    padding: 10px 5px;
+  }
+
+  .tecnologies {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .tecnologies span {
+    border: 2px solid var(--base-clr);
+    border-radius: 7px;
+    font-weight: 600;
+    padding: 4px;
+  }
+
+  /*   Tablet media querys    */
+  @media (min-width: 768px) {
+    .about-text {
+      font-size: 1.1rem;
+    }
+
+    .timeline-list {
+      flex-direction: row;
+    }
+
+    .timeline-item {
+      width: 100%;
+      max-width: 300px;
+      aspect-ratio: 2/2.2;
+    }
+
+    .timeline-item::before {
+      top: -25px;
+      left: 0;
+      width: calc(100% + 30px);
+      height: 5px;
+    }
+
+    .timeline-item::after {
+      top: -35px;
+      left: -10px;
+    }
+
+    .timeline-item h3 {
+      font-size: 1.3rem;
+    }
+
+    .timeline-item h4 {
+      font-size: 1.1rem;
+    }
+  }
 </style>
