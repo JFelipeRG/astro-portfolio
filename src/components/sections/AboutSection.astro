@@ -43,6 +43,10 @@ import SectionLayout from "@layouts/SectionLayout.astro";
         <span>Cursando actualmente</span>
         <h3>FullStack Python</h3>
         <h4>IBM SkillsBuild</h4>
+        <div class="tecnologies">
+          <span>Python</span>
+          <span>Django</span>
+        </div>
       </li>
     </ul>
   </div>
@@ -73,7 +77,7 @@ import SectionLayout from "@layouts/SectionLayout.astro";
     display: block;
     position: relative;
     width: 100%;
-    max-width: 300px;
+    max-width: 500px;
     height: auto;
     padding: 10px;
     background: var(--text-clr);
@@ -143,7 +147,7 @@ import SectionLayout from "@layouts/SectionLayout.astro";
   }
 
   .tecnologies {
-    margin-top: 15px;
+    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -166,12 +170,6 @@ import SectionLayout from "@layouts/SectionLayout.astro";
       flex-direction: row;
     }
 
-    .timeline-item {
-      width: 100%;
-      max-width: 300px;
-      aspect-ratio: 2/2.2;
-    }
-
     .timeline-item::before {
       top: -25px;
       left: 0;
@@ -182,10 +180,6 @@ import SectionLayout from "@layouts/SectionLayout.astro";
     .timeline-item::after {
       top: -35px;
       left: -10px;
-    }
-
-    .timeline-item h3 {
-      font-size: 1.3rem;
     }
 
     .timeline-item h4 {
