@@ -29,7 +29,8 @@ const { title } = Astro.props;
 <style is:global>
   @font-face {
     font-family: "SF UI Text";
-    src: url("/fonts/SFUIText-Regular.woff");
+    src: url("/fonts/SFUIText-Regular.woff2") format(woff2);
+    font-display: swap;
   }
 
   :root {
