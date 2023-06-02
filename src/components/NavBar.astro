@@ -66,54 +66,50 @@ import HeartIcon from "./Icons/HeartIcon.astro";
       >
     </div>
     <hr />
-    <span class="navbar-footer">Desarrollado con <span class="footer-icon"><HeartIcon></HeartIcon></span></span>
+    <span class="navbar-footer"
+      >Desarrollado con <span class="footer-icon"><HeartIcon /></span></span
+    >
   </div>
 </nav>
 
 <style>
   nav {
-    mix-blend-mode: difference;
     display: block;
     position: fixed;
-    z-index: 2;
-    padding: 10px;
     right: 0;
-    width: 70px;
-    height: 70px;
+    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--clr-base-txt);
-    border-left: 2px solid transparent;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-in-out;
+    mix-blend-mode: difference;
   }
 
   nav.fold {
-    animation: fold 0.8s ease-in-out;
-    transition-property: all;
+    transition-property: all 0.8s;
     transition-delay: 0.8s;
-    width: 70px;
-    height: 70px;
+    animation-name: fold;
   }
 
   nav.unfold {
-    background: #ccc;
     width: 100%;
     max-width: 440px;
     height: 100%;
+    background: #ccc;
     color: var(--clr-base-bg);
     transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
-    animation: unfold 0.8s ease-in-out;
+    animation-name: unfold;
   }
 
   .collapse-icon-container {
-    position: relative;
     width: 3.5rem;
     height: 3.5rem;
     position: fixed;
-    top: 10px;
-    right: 20px;
+    top: 5px;
+    right: 10px;
     padding: 5px;
-    border-radius: 50%;
     cursor: pointer;
   }
 
@@ -123,15 +119,11 @@ import HeartIcon from "./Icons/HeartIcon.astro";
 
   ul {
     list-style: none;
-    font-size: 1.7rem;
     gap: 20px;
-    margin: 0;
-    padding: 0;
   }
 
   ul,
   li {
-    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -140,37 +132,8 @@ import HeartIcon from "./Icons/HeartIcon.astro";
   }
 
   a {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-decoration: none;
     color: var(--clr-base-bg);
-  }
-
-  a:hover {
-    color: var(--clr-secondary);
-    transition: color 0.2s ease-in-out;
-  }
-
-  li a::after {
-    content: "";
-    display: block;
-    position: relative;
-    bottom: -5px;
-    height: 2px;
-    background: transparent;
-  }
-
-  li a:hover::after {
-    background: var(--clr-primary);
-    animation: underline 0.5s forwards;
-  }
-
-  hr {
-    width: 240px;
-    background: var(--clr-tertiary);
-    margin: 20px 0;
   }
 
   .icons {
@@ -184,6 +147,12 @@ import HeartIcon from "./Icons/HeartIcon.astro";
     width: 3rem;
   }
 
+  hr {
+    width: 240px;
+    margin: 20px 0;
+  }
+
+
   .navbar-footer {
     display: flex;
     justify-content: center;
@@ -192,25 +161,26 @@ import HeartIcon from "./Icons/HeartIcon.astro";
   }
 
   .footer-icon {
-    display: inline-block;
+    display: block;
     width: 1.2rem;
-    animation: beat .7s ease-in-out infinite alternate both;
-    filter: saturate(2) brightness(.9);
+    animation: beat 0.7s ease-in-out infinite alternate both;
+    filter: saturate(2) brightness(0.9);
   }
 
   @keyframes fold {
-    0% {
-      clip-path: circle(150% at 100% 0);
+    0%,
+    100% {
       width: 100%;
       max-width: 440px;
       height: 100%;
     }
 
+    0% {
+      clip-path: circle(150% at 100% 0);
+    }
+
     100% {
       clip-path: circle(0 at 100% 0);
-      width: 100%;
-      max-width: 440px;
-      height: 100%;
     }
   }
 
@@ -242,16 +212,48 @@ import HeartIcon from "./Icons/HeartIcon.astro";
     }
   }
 
-  @media (max-width: 800px) {
-    .collapse-icon-container {
-      top: 5px;
-      right: 5px;
+  @media (min-width: 320px) {
+    ul {
+      font-size: 1.4rem;
     }
   }
 
-  @media (max-width: 320px) {
+  @media (min-width: 768px) {
     ul {
-      font-size: 1.3rem;
+      font-size: 1.5rem;
+    }
+
+    .collapse-icon-container {
+      top: 10px;
+      right: 20px;
+    }
+  }
+
+  @media (hover: hover) {
+    a {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    a:hover {
+      color: var(--clr-secondary);
+      transition: color 0.2s ease-in-out;
+    }
+
+    li a::after {
+      content: "";
+      display: block;
+      position: relative;
+      bottom: -5px;
+      height: 2px;
+      background: transparent;
+    }
+
+    li a:hover::after {
+      background: var(--clr-primary);
+      animation: underline 0.5s forwards;
     }
   }
 </style>

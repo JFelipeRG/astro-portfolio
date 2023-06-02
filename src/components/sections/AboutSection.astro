@@ -4,7 +4,7 @@ import SectionLayout from "@layouts/SectionLayout.astro";
 
 <SectionLayout id="about">
   <h1 class="title-section">Sobre mí</h1>
-  <p>
+  <p class="about-text">
     ¡Hola! Mi nombre es Felipe, soy un desarrollador junior front-end entusiasta que
     descubrió el fascinante mundo de la informática de manera fortuita. Aunque
     inicialmente me inclinaba hacia la física, gracias a una charla en mi instituto,
@@ -49,8 +49,8 @@ import SectionLayout from "@layouts/SectionLayout.astro";
 </SectionLayout>
 
 <style>
- p {
-  max-width: 500px;
+ .about-text {
+  max-width: 700px;
   text-indent: 10px;
   text-align: justify;
   line-height: 1.5;
@@ -63,13 +63,15 @@ import SectionLayout from "@layouts/SectionLayout.astro";
 
  .timeline-list {
   display: flex;
+  flex-direction: column;
   gap: 30px;
  }
 
  .timeline-item {
   display: block;
   position: relative;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   aspect-ratio: 2/2.5;
   padding: 10px;
   border: 5px solid var(--clr-base-bg);
@@ -118,9 +120,25 @@ import SectionLayout from "@layouts/SectionLayout.astro";
   color: var(--clr-base-txt);
  }
 
- h3 {
+ .timeline-item > span {
+  display: inline-block;
+  margin-bottom: 5px;
+ }
+
+ .timeline-item h3 {
+  height: 60px;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   padding: 5px;
   border-radius: 7px;
+ }
+
+ .timeline-item h4 {
+  font-size: 1.1rem;
+  padding: 5px;
  }
 
  .timeline-item:nth-child(even) h3 {
@@ -131,5 +149,24 @@ import SectionLayout from "@layouts/SectionLayout.astro";
  .timeline-item:nth-child(odd) h3 {
   background: var(--clr-base-bg);
   color: var(--clr-base-txt);
+ }
+
+ /*   Tablet media querys    */
+ @media (min-width: 768px) {
+  .about-text {
+    font-size: 1.1rem;
+  }
+
+  .timeline-list {
+    flex-direction: row;
+  }
+
+  .timeline-item span {
+    font-size: 1.2rem;
+  }
+
+  .timeline-item h3 {
+
+  }
  }
 </style>
