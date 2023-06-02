@@ -1,9 +1,9 @@
 ---
 import SectionLayout from "@layouts/SectionLayout.astro";
-import ProjectContainer from "./ProjectContainer.astro";
+import ProjectContainer from "@components/ProjectContainer.astro";
+import { getAllProjects } from "@services/projects.js"
 
-let projects = await Astro.glob("@json/projects.json");
-projects = projects[0].default.proyects;
+let projects = getAllProjects();
 ---
 
 <SectionLayout id="projects">
