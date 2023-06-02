@@ -28,7 +28,7 @@
       "name": "Portfolio",
       "description": "Mi sitio web, donde podrás conocerme un poco más y ver algunos trabajos.",
       "imageSrc": "/img/portfolio.webp",
-      "url": "https://memory-game-jfrg.netlify.app/",
+      "url": "",
       "repoUrl": "https://github.com/JFelipeRG/astro-portfolio",
       "tecnologies": ["Astro", "JavaScript", "CSS"]
     },
