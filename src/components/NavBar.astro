@@ -11,23 +11,10 @@ import HeartIcon from "./Icons/HeartIcon.astro";
   const changeCollapseState = () => {
     if (nav.classList.contains("unfold")) {
       nav.classList.replace("unfold", "fold");
-      manageContent(true);
+    } else if (nav.classList.contains("fold")) {
+      nav.classList.replace("fold", "unfold");
     } else {
       nav.classList.add("unfold");
-      manageContent(false);
-    }
-  };
-
-  const manageContent = (isCollapse) => {
-    const content = document.querySelector(".content-navbar") as HTMLElement;
-    if (isCollapse) {
-      setTimeout(() => {
-        content.style.display = "none";
-        nav.style["mix-blend-mode"] = "difference";
-      }, 700);
-    } else {
-      content.style.display = "block";
-      nav.style["mix-blend-mode"] = "normal";
     }
   };
 
@@ -63,7 +50,7 @@ import HeartIcon from "./Icons/HeartIcon.astro";
 
 <style>
   nav {
-    display: block;
+    mix-blend-mode: difference;
     position: fixed;
     right: 0;
     z-index: 1;
@@ -73,22 +60,21 @@ import HeartIcon from "./Icons/HeartIcon.astro";
     color: var(--clr-base-txt);
     animation-duration: 0.8s;
     animation-timing-function: ease-in-out;
-    mix-blend-mode: difference;
   }
 
   nav.fold {
-    transition-property: all 0.8s;
+    transition-property: all;
     transition-delay: 0.8s;
     animation-name: fold;
   }
 
   nav.unfold {
+    mix-blend-mode: normal;
     width: 100%;
     max-width: 440px;
     height: 100%;
     background: #151515;
     color: var(--clr-base-txt);
-    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
     animation-name: unfold;
   }
 
@@ -104,6 +90,10 @@ import HeartIcon from "./Icons/HeartIcon.astro";
 
   .content-navbar {
     display: none;
+  }
+
+  nav.unfold .content-navbar {
+    display: block;
   }
 
   ul {
@@ -154,10 +144,16 @@ import HeartIcon from "./Icons/HeartIcon.astro";
 
     0% {
       clip-path: circle(150% at 100% 0);
+      mix-blend-mode: normal;
+    }
+
+    90% {
+      mix-blend-mode: normal;
     }
 
     100% {
       clip-path: circle(0 at 100% 0);
+      mix-blend-mode: difference;
     }
   }
 
@@ -168,6 +164,18 @@ import HeartIcon from "./Icons/HeartIcon.astro";
 
     100% {
       clip-path: circle(150% at 100% 0);
+    }
+  }
+
+  @keyframes hiddeElement {
+    0% {
+      display: block;
+    }
+    90% {
+      display: block;
+    }
+    100% {
+      display: none;
     }
   }
 
