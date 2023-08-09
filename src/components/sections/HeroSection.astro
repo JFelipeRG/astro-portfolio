@@ -1,5 +1,7 @@
 ---
 import SectionLayout from "@layouts/SectionLayout.astro";
+import GitHubIcon from "../Icons/GitHubIcon.astro";
+import LinkedInIcon from "../Icons/LinkedInIcon.astro";
 ---
 
 <SectionLayout id="hero">
@@ -20,6 +22,18 @@ import SectionLayout from "@layouts/SectionLayout.astro";
       download="Juan Felipe Ramirez Gaviria CV.pdf">Descargar CV</a
     >
   </div>
+  <div class="icons">
+      <a
+        href="https://github.com/JFelipeRG"
+        target="_blank"
+        aria-label="Go my github page"><GitHubIcon /></a
+      >
+      <a
+        href="https://www.linkedin.com/in/felipe-ramirez-722460263/"
+        target="_blank"
+        aria-label="Go my linkedin page"><LinkedInIcon /></a
+      >
+    </div>
 </SectionLayout>
 
 <style scoped>
@@ -83,6 +97,19 @@ import SectionLayout from "@layouts/SectionLayout.astro";
     font-weight: 600;
     background: var(--clr-tertiary);
     border-radius: 7px;
+  }
+
+  .icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .icons a {
+    text-decoration: none;
+    color: var(--clr-tertiary);
+    width: 3rem;
   }
 
   @keyframes morphing {

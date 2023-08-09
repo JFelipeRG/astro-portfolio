@@ -25,14 +25,6 @@
       "tecnologies": ["Vue", "JavaScript", "CSS"]
     },
     {
-      "name": "Portfolio",
-      "description": "Mi sitio web, donde podrás conocerme un poco más y ver algunos trabajos.",
-      "imageSrc": "/img/portfolio.webp",
-      "url": "https://feliperamirez.netlify.app/",
-      "repoUrl": "https://github.com/JFelipeRG/astro-portfolio",
-      "tecnologies": ["Astro", "JavaScript", "CSS"]
-    },
-    {
       "name": "Memory Game",
       "description": "Juego de buscar las parejas para ejercitar la memoria.",
       "imageSrc": "/img/memory.webp",
